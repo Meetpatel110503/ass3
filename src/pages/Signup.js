@@ -136,7 +136,10 @@ const SignUp = () => {
             for='remember'
             className='ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'
           >
-            Already have a member? <Link to='/login'>log in</Link>
+            Already have a member?{" "}
+            <Link to='/login' className='text-blue-500'>
+              log in
+            </Link>
           </p>
         </div>
       </div>

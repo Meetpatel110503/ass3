@@ -74,7 +74,7 @@ const Login = () => {
             for='remember'
             className='ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'
           >
-            Not a member? <Link to='/signup'>Sign Up</Link>
+            Not a member? <Link to='/signup' className="text-blue-500">Sign Up</Link>
           </p>
         </div>
       </div>
