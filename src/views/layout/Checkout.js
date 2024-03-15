@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const Checkout = () => {
   return (
     <div>
-      <div className="flex justify-center item-center">
+      <div className=" flex justify-center item-center">
         <figure className='max-w-lg p-5 mt-10'>
           <img
             className=' max-w-full rounded-lg'

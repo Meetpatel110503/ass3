@@ -1,4 +1,5 @@
 import React from "react"
+import { AiOutlineShoppingCart } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { removeUser } from "../redux/action/userLoginSlice"
@@ -6,6 +7,7 @@ import { removeUser } from "../redux/action/userLoginSlice"
 const Navbar = () => {
   const dispatch = useDispatch()
   const user = useSelector((store) => store.userLogin.userLogin)
+  const cart = useSelector((state) => state.cart)
 
   return (
     <div>
@@ -96,14 +98,7 @@ const Navbar = () => {
                     Home
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to='/cart'
-                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0'
-                  >
-                    Cart
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     to='/login'
@@ -111,6 +106,20 @@ const Navbar = () => {
                     onClick={() => dispatch(removeUser())}
                   >
                     Logout
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/cart'
+                    className='text-black text-[30px] relative hover:cursor-pointer hover:opacity-80 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0'
+                  >
+                    <AiOutlineShoppingCart />
+                    <div
+                      className='absolute top-[-15px] right-[-10px] bg-red-600 w-[25px] h-[25px] rounded-full text-white text-[14px] grid place-items-center'
+                      data-test='cart-item-count'
+                    >
+                      {cart.length}
+                    </div>
                   </Link>
                 </li>
               </ul>

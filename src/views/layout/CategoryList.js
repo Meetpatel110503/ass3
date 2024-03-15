@@ -9,7 +9,7 @@ function CategoryList({ categories, onSelectCategory }) {
   }
 
   return (
-    <div className='h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800'>
+    <div className=' px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800'>
       <h1 className='space-y-2 font-extrabold m-2'>Categories</h1>
       <ul className='space-y-2 font-medium'>
         <li

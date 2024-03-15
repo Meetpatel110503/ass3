@@ -12,14 +12,14 @@ function Home() {
   const [sortOrder, setSortOrder] = useState("asc")
   const [loading, setLoading] = useState(true)
   const [searchKey, setSearchKey] = useState("")
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage] = useState(5)
 
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true)
       try {
-        const response = await axios.get(
-          `https://fakestoreapi.com/products?sort=${sortOrder}`
-        )
+        const response = await axios.get("https://fakestoreapi.com/products")
         setProducts(response.data)
       } catch (error) {
         toast.error("Error fetching products")
@@ -40,7 +40,7 @@ function Home() {
 
     fetchProducts()
     fetchCategories()
-  }, [sortOrder])
+  }, [])
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category)
@@ -54,6 +54,10 @@ function Home() {
     setSearchKey(e.target.value)
   }
 
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
     : products
@@ -64,8 +68,20 @@ function Home() {
       )
     : filteredProducts
 
+  const sortedProducts = [...searchedProducts].sort((a, b) => {
+    if (sortOrder === "asc") {
+      return a.id - b.id
+    } else {
+      return b.id - a.id
+    }
+  })
+
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = sortedProducts.slice(indexOfFirstItem, indexOfLastItem)
+
   return (
-    <div className='h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800'>
+    <div className=' px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800'>
       <div className='flex'>
         <div className='w-72'>
           <CategoryList
@@ -74,7 +90,8 @@ function Home() {
           />
         </div>
 
-        <div className=' pl-8'>
+        <div className='pl-8'>
+          <div className="flex flex-col sm:flex-row sm:pl-5">
           <div className='m-4'>
             <label htmlFor='sortOrder' className='mr-2 font-extrabold'>
               Sorting:
@@ -108,7 +125,24 @@ function Home() {
               className='border rounded-lg px-4 py-2'
             />
           </div>
-          {loading ? <Loader /> : <ProductList products={searchedProducts} />}
+          </div>
+          {loading ? <Loader /> : <ProductList products={currentItems} />}
+          <div className='flex justify-between mt-4'>
+            <button
+              onClick={() => paginate(currentPage - 1)}
+              disabled={currentPage === 1}
+              className='bg-blue-500 text-white px-4 py-2 rounded-lg disabled:bg-gray-400 disabled:text-gray-700'
+            >
+              Prev
+            </button>
+            <button
+              onClick={() => paginate(currentPage + 1)}
+              disabled={indexOfLastItem >= sortedProducts.length}
+              className='bg-blue-500 text-white px-4 py-2 rounded-lg disabled:bg-gray-400 disabled:text-gray-700'
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

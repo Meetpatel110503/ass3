@@ -2,6 +2,7 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
 import { addToCart } from "../../redux/action/cartSlice"
+import { AiOutlineShoppingCart } from "react-icons/ai"
 
 function ProductList({ products }) {
   const dispatch = useDispatch()
@@ -36,7 +37,8 @@ function ProductList({ products }) {
               {user && (
                 <button
                   type='button'
-                  className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'
+                  className='flex items-center space-x-2 hover:bg-blue-800 text-white py-2 px-4 rounded bg-blue-500'
+                  data-test='add-cart-btn'
                   onClick={() => {
                     if (user.length !== 0) {
                       dispatch(addToCart(product))
@@ -48,7 +50,8 @@ function ProductList({ products }) {
                     }
                   }}
                 >
-                  <div className='flex'>Add to Cart</div>
+                  <AiOutlineShoppingCart />
+                  <span>ADD TO CART</span>
                 </button>
               )}
             </div>
