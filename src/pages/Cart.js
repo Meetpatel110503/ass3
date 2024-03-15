@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import {  useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
-import { removeFromCart } from "../redux/action/cartSlice"
+import { emptyCart, removeFromCart } from "../redux/action/cartSlice"
 
 function Cart() {
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart)
-  console.log("cart", cart)
+  const navigate = useNavigate()
 
   const [itemCounts, setItemCounts] = useState(
     Object.fromEntries(cart.map((item) => [item.id, 1]))
@@ -21,6 +22,12 @@ function Cart() {
       ...itemCounts,
       [productId]: itemCounts[productId] + 1,
     })
+  }
+
+  const checkout = () => {
+    dispatch(emptyCart())
+    toast.success("your order has been confirmed.")
+    navigate("/checkout")
   }
 
   const handleDecrease = (productId) => {
@@ -55,10 +62,10 @@ function Cart() {
             />
             <div>
               <div className='flex flex-col justify-between p-4 leading-normal'>
-                <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
+                <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 '>
                   {item.title}
                 </h5>
-                <p className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
+                <p className='mb-3 font-normal text-gray-700 '>
                   Price: ${item.price}
                 </p>
                 <div className='flex items-center space-x-2'>
@@ -94,8 +101,10 @@ function Cart() {
         <h2 className='font-bold text-2xl mt-3'>
           Total: ${calculateTotalPrice()}
         </h2>
+
         <button
           type='button'
+          onClick={checkout}
           className='w-56 text-center text-white bg-blue-500 py-2 my-4 rounded font-bold text-xl hover:bg-blue-700'
         >
           CHECKOUT

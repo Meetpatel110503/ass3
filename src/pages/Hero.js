@@ -16,7 +16,7 @@ const data = [
   {
     icon: <TbDiscount2 className='text-4xl' />,
     title: "Member Discount",
-    desc: "On order over Rs.5999",
+    desc: "On order over $999",
   },
   {
     icon: <MdSupportAgent className='text-4xl' />,

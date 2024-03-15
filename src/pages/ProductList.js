@@ -4,18 +4,16 @@ import { toast } from "react-toastify"
 import { addToCart } from "../redux/action/cartSlice"
 
 function ProductList({ products }) {
-  const cart = useSelector((state) => state.cart)
-  console.log("cart is", cart)
   const dispatch = useDispatch()
   const user = useSelector((store) => store.userLogin.userLogin)
 
   return (
-    <div className='flex flex-wrap justify-between p-3'>
+    <div className='flex flex-wrap justify-around '>
       {products &&
         products.length > 0 &&
         products.map((product) => (
           <div
-            className='p-3 mt-3 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'
+            className='p-3 mt-5 mr-5 max-w-sm bg-white border border-gray-200 rounded-lg shadow'
             style={{ width: "20rem" }}
           >
             <img
@@ -25,7 +23,7 @@ function ProductList({ products }) {
             />
 
             <div className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
-              <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
+              <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>
                 {product.title}
               </h5>
               <p className='text-gray-600 text-base mb-2'>{product.category}</p>
@@ -33,7 +31,7 @@ function ProductList({ products }) {
                 Rating: {product.rating.rate}
               </p>
               <p className='text-gray-600 text-base mb-2'>
-                Price: {product.price}
+                Price: ${product.price}
               </p>
               {user && (
                 <button
@@ -50,7 +48,7 @@ function ProductList({ products }) {
                     }
                   }}
                 >
-                  Add to Cart
+                  <div className='flex'>Add to Cart</div>
                 </button>
               )}
             </div>

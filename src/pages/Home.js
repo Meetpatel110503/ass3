@@ -9,7 +9,6 @@ function Home() {
   const [categories, setCategories] = useState([])
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [sortOrder, setSortOrder] = useState("asc")
-  const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const [searchKey, setSearchKey] = useState("")
 
@@ -50,10 +49,6 @@ function Home() {
     setSortOrder(e.target.value)
   }
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
-
   const handleSearchInputChange = (e) => {
     setSearchKey(e.target.value)
   }
@@ -71,14 +66,15 @@ function Home() {
   return (
     <div className='h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800'>
       <div className='flex'>
-        <div className='w-1/3'>
+        <div className='w-72'>
           <CategoryList
             categories={categories}
             onSelectCategory={handleCategoryChange}
+            
           />
         </div>
 
-        <div className='w-3/4 pl-8'>
+        <div className=' pl-8'>
           <div className='m-4'>
             <label htmlFor='sortOrder' className='mr-2 font-extrabold'>
               Sorting:
@@ -101,7 +97,7 @@ function Home() {
             </select>
           </div>
           <div className='m-4'>
-          <label htmlFor='sortOrder' className='mr-2 font-extrabold'>
+            <label htmlFor='sortOrder' className='mr-2 font-extrabold'>
               Searching:
             </label>
             <input
@@ -113,21 +109,6 @@ function Home() {
             />
           </div>
           {loading ? <Loader /> : <ProductList products={searchedProducts} />}
-          <div className='flex justify-center mt-4'>
-            <button
-              className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2'
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
-            <button
-              className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
-              onClick={() => handlePageChange(currentPage + 1)}
-            >
-              Next
-            </button>
-          </div>
         </div>
       </div>
     </div>

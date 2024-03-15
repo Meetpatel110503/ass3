@@ -9,7 +9,6 @@ const SignUp = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const users = useSelector((store) => store.users.users)
-  console.log(users)
 
   const onSubmit = (data) => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})/
@@ -43,14 +42,14 @@ const SignUp = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='max-w-sm mx-auto  mb-4 border border-gray-200 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 p-4 m-4'>
+      <div className='max-w-sm mx-auto  mb-4 border border-gray-200 rounded-lg bg-white dark:bg-gray-700 p-4 mt-14'>
         <h4 className='text-2xl font-bold dark:text-whit pb-3 text-center'>
           Sign Up Form
         </h4>
         <div className='mb-3'>
           <label
             for='fname'
-            className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
+            className='block mb-2 text-sm font-medium text-gray-900 '
           >
             Username
           </label>

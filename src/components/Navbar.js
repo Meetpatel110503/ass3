@@ -6,11 +6,11 @@ import { removeUser } from "../redux/action/userLoginSlice"
 const Navbar = () => {
   const dispatch = useDispatch()
   const user = useSelector((store) => store.userLogin.userLogin)
-  console.log("navbar user is: " + user)
+
   return (
     <div>
       <nav className='bg-white border-gray-200 dark:bg-gray-900'>
-        <div className='max-w-screen-xl flex flex-wrap items-center justify-between p-3 m-3'>
+        <div className=' flex flex-wrap items-center justify-between p-3 m-3'>
           <Link
             to='/'
             className='flex items-center space-x-3 rtl:space-x-reverse'
@@ -54,7 +54,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/home'
-                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500'
+                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0'
                     aria-current='page'
                   >
                     Home
@@ -63,7 +63,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/login'
-                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500'
+                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 '
                   >
                     Login
                   </Link>
@@ -80,7 +80,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to='/cart'
-                      className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500'
+                      className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 '
                     ></Link>
                   </li>
                 </li>
@@ -90,7 +90,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/home'
-                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500'
+                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 '
                     aria-current='page'
                   >
                     Home
@@ -99,7 +99,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to='/cart'
-                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500'
+                    className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0'
                   >
                     Cart
                   </Link>

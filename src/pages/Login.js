@@ -9,11 +9,9 @@ const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const users = useSelector((store) => store.users.users)
-  console.log("users is", users)
 
   const onSubmit = (data) => {
     const existingUser = users.find((user) => data.email === user.email)
-    console.log("user is1", existingUser)
 
     if (existingUser) {
       if (data.password === existingUser.password) {
@@ -30,7 +28,7 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='max-w-sm mx-auto  mb-4 border border-gray-200 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 p-4 m-4'>
+      <div className='max-w-sm mx-auto  mb-4 border border-gray-200 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 p-4 mt-14'>
         <h4 className='text-2xl font-bold dark:text-whit pb-3 text-center'>
           Login Form
         </h4>

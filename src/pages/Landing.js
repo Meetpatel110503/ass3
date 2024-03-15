@@ -8,7 +8,7 @@ const Landing = () => {
         <div className='flex items-center'>
           <div className='max-w-[450px] space-y-4'>
             <p className='text-black'>
-              Starting At <span className='font-bold'>Rs.999</span>
+              Starting At <span className='font-bold'>$22</span>
             </p>
             <h2 className='text-black font-bold text-4xl md:text-5xl'>
               The best collection 2024
