@@ -3,6 +3,7 @@ import axios from "axios"
 import ProductList from "./ProductList"
 import CategoryList from "./CategoryList"
 import Loader from "../components/Loader"
+import { toast } from "react-toastify"
 
 function Home() {
   const [products, setProducts] = useState([])
@@ -21,7 +22,7 @@ function Home() {
         )
         setProducts(response.data)
       } catch (error) {
-        console.error("Error fetching products:", error)
+        toast.error("Error fetching products")
       }
       setLoading(false)
     }
@@ -33,7 +34,7 @@ function Home() {
         )
         setCategories(response.data)
       } catch (error) {
-        console.error("Error fetching categories:", error)
+        toast.error("Error fetching categories")
       }
     }
 
@@ -70,7 +71,6 @@ function Home() {
           <CategoryList
             categories={categories}
             onSelectCategory={handleCategoryChange}
-            
           />
         </div>
 
