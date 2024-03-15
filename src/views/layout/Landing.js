@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Hero from "./Hero"
+import Hero from "../layout/Hero"
 
 const Landing = () => {
   return (
@@ -20,7 +20,7 @@ const Landing = () => {
             <Link
               to='/home'
               data-test='hero-btn'
-              className='inline-block bg-blue-500 rounded-md px-6 py-3 hover:bg-blue-200 hover:text-white'
+              className='inline-block bg-blue-500 rounded-md px-6 py-3 hover:bg-blue-200 hover:text-black'
             >
               Shop Now
             </Link>

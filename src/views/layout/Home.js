@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import ProductList from "./ProductList"
-import CategoryList from "./CategoryList"
-import Loader from "../components/Loader"
+import CategoryList from "../layout/CategoryList"
+import Loader from "../../components/Loader"
 import { toast } from "react-toastify"
 
 function Home() {

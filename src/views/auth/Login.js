@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
 import { useDispatch, useSelector } from "react-redux"
-import { addUser } from "../redux/action/userLoginSlice"
+import { addUser } from "../../redux/action/userLoginSlice"
 
 const Login = () => {
   const { register, handleSubmit } = useForm()
@@ -74,7 +74,10 @@ const Login = () => {
             for='remember'
             className='ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'
           >
-            Not a member? <Link to='/signup' className="text-blue-500">Sign Up</Link>
+            Not a member?{" "}
+            <Link to='/signup' className='text-blue-500'>
+              Sign Up
+            </Link>
           </p>
         </div>
       </div>

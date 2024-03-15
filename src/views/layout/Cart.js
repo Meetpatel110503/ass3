@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import {  useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
-import { emptyCart, removeFromCart } from "../redux/action/cartSlice"
+import { emptyCart, removeFromCart } from "../../redux/action/cartSlice"
 
 function Cart() {
   const dispatch = useDispatch()

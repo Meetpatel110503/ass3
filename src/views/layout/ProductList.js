@@ -1,7 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
-import { addToCart } from "../redux/action/cartSlice"
+import { addToCart } from "../../redux/action/cartSlice"
 
 function ProductList({ products }) {
   const dispatch = useDispatch()

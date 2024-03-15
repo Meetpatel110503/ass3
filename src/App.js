@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import "./assets/index.css"
-import Login from "./pages/Login"
+import "./assets/style/index.css"
+import Login from "./views/auth/Login"
 import Navbar from "./components/Navbar"
-import SignUp from "./pages/Signup"
-import Landing from "./pages/Landing"
-import Home from "./pages/Home"
-import Cart from "./pages/Cart"
-import Checkout from "./pages/Checkout"
+import SignUp from "./views/auth/Signup"
+import Landing from "./views/layout/Landing"
+import Home from "./views/layout/Home"
+import Cart from "./views/layout/Cart"
+import Checkout from "./views/layout/Checkout"
 
 function App() {
   return (
